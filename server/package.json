@@ -1,0 +1,30 @@
+{
+  "name": "product",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/server.js",
+    "babel-node": "babel-node",
+    "serve": "nodemon --exec npm run babel-node ./src/server.js",
+    "build": "gulp copy & babel src -d dist/src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bookshelf": "^0.13.3",
+    "bookshelf-cascade-delete": "^2.0.1",
+    "bookshelf-json-columns": "^2.1.1",
+    "express": "^4.16.4",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.4.0",
+    "knex": "^0.15.2",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}

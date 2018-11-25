@@ -5,6 +5,10 @@ export default class CategoriaService {
         this._model = new CategoriaModel();
     }
 
+    inserir (categoria) {
+        return this._model.save(categoria);
+    }
+
     listar () {
         return this._model.fetchAll();
     }

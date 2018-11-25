@@ -3,20 +3,40 @@ import Service from './CategoriaService';
 
 const router = Router();
 
-router.get('/', (request, response) => {
+router.get('/', async (request, response) => {
     let service = new Service();
-    let categorias = service.listar();
-    categorias
-        .then(result => response.json(result))
-        .catch(err => response.status(500).send(err));
+    try {
+        let categorias = await service.listar();
+        return categorias
+            ? response.json(categorias)
+            : response.sendStatus(404);
+    } catch (err) {
+        return response.status(500).send(err);
+    }
 });
 
-router.get('/:id', (request, response) => {
+router.get('/:id', async (request, response) => {
     let service = new Service();
-    let categoria = service.buscarPorId(request.params.id);
-    categoria
-        .then(result => response.json(result))
-        .catch(err => response.status(500).send(err));
+
+    try {
+        let categoria = await service.buscarPorId(request.params.id);
+        return categoria
+            ? response.json(categoria)
+            : response.sendStatus(404);
+    } catch (err) {
+        return response.status(500).send(err);
+    }
+});
+
+router.post('/', async (request, response) => {
+    let service = new Service();
+    try {
+        let categoria = request.body;
+        service.inserir(categoria);
+        return response.json(categoria);
+    } catch (err) {
+        return response.status(500).send(err);
+    }
 });
 
 export default router;

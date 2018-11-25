@@ -17,6 +17,7 @@
     "bookshelf": "^0.13.3",
     "bookshelf-cascade-delete": "^2.0.1",
     "bookshelf-json-columns": "^2.1.1",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.4.0",
